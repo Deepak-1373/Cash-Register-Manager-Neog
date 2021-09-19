@@ -2,26 +2,39 @@ var billAmount = document.querySelector("#bill-amount");
 var cashGiven = document.querySelector("#cash-given");
 var checkBtn = document.querySelector("#check-btn");
 var errorMessage = document.querySelector("#error-message");
+var noOfNotes = document.querySelectorAll(".no-of-notes");
 
-function validateBillAndCashAmount() {
-  errorMessage.style.display = "none";
+var denominations = [2000, 500, 100, 20, 10, 5, 1];
+
+checkBtn.addEventListener("click", function validateBillAndCashAmount() {
+  hideMessage();
   if (billAmount.value > 0) {
-    if (cashGiven >= billAmount.value) {
+    if (cashGiven.value >= billAmount.value) {
       var amountToBeReturned = cashGiven.value - billAmount.value;
+      calculateChange(amountToBeReturned);
     } else {
       showMessage(
         "The cash provided should atleast be equal to the bill amount"
       );
     }
   } else {
-    errorMessage.style.display = "block";
     showMessage("Invalid Bill Amount");
   }
+});
+
+function calculateChange(amount) {
+  for (let i = 0; i < denominations.length; i++) {
+    var numberOfNotes = Math.trunc(amount / denominations[i]);
+    amount = amount % denominations[i];
+    noOfNotes[i].innerText = numberOfNotes;
+  }
+}
+
+function hideMessage() {
+  errorMessage.style.display = "none";
 }
 
 function showMessage(message) {
   errorMessage.style.display = "block";
-  errorMessage;
+  errorMessage.innerText = message;
 }
-
-checkBtn.addEventListener("click", validateBillAndCashAmount());
