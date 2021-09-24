@@ -1,6 +1,6 @@
 :root {
-  --dark-green: #064e3b;
-  --faint-green: #a7f3d0;
+  --dark-black: #fecaca;
+  --faint-green: #7f1d1d;
 }
 * {
   font-family: "Open Sans", sans-serif;
@@ -17,12 +17,12 @@ body {
   margin: auto;
   padding: 2rem 1rem;
   text-align: center;
-  background-color: var(--dark-green);
+  background-color: var(--dark-black);
 }
 
 h1,
 p {
-  color: white;
+  color: #111827;
 }
 
 label {
@@ -37,6 +37,9 @@ input {
   height: 50px;
   display: block;
   outline: none;
+  border-radius: 10px;
+  border-radius: 30px;
+  border: none;
 }
 
 button {
@@ -46,7 +49,7 @@ button {
   border: none;
   margin: 1rem auto 0;
   background-color: var(--faint-green);
-  color: var(--dark-green);
+  color: var(--dark-black);
   font-weight: bold;
 }
 
@@ -59,9 +62,9 @@ table,
 th,
 td {
   padding: 0.2rem;
-  color: var(--dark-green);
+  color: var(--dark-black);
   background-color: var(--faint-green);
-  border: 2px solid var(--dark-green);
+  border: 2px solid var(--dark-black);
   border-collapse: collapse;
 }
 
